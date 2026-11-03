@@ -24,3 +24,7 @@ def energy(pos, vel, mass, eps, block=256):
         pot -= np.sum(mass[i:i + block, None] * mass[None, :] / r)
     pot = 0.5 * (pot + np.sum(mass**2) / eps)  # drop the i == j terms, count each pair once
     return kin, pot
+
+import os
+if os.environ.get("NBODY_KERNEL") == "numba":
+    from physics_numba import accel  # noqa: F811  same signature, chosen by environment variable

@@ -38,6 +38,7 @@ def main():
     k0, w0 = energy(pos, vel, mass, a.eps)
     frames = [pos.copy()] if a.save_every else []
 
+    accel(pos[:2], mass[:2], 0, 2, a.eps)  # warm-up (Numba compile) outside the timer
     t0 = time.perf_counter()
     acc = accel(pos, mass, 0, a.n, a.eps)
     for step in range(1, a.steps + 1):

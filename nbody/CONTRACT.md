@@ -12,3 +12,7 @@ Files (results/):
   final_<id>.npz   pos, vel, mass, label
   frames_<id>.npz  frames (positions every K steps; showcase runs only)
 Timing: covers the initial accel plus all steps; no I/O, plotting or energy checks inside it.
+
+MPI start: every rank builds the same two_clusters() start from the same seed (no Bcast).
+runs.csv for impl=mpi: t_comp and t_comm are MEANS over ranks; t_comm includes waiting for slower ranks.
+rank_times_<id>.csv: rank, bodies, t_comp, t_comm (one row per rank).
