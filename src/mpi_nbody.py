@@ -1,4 +1,4 @@
-"""MPI distributed N-body: block decomposition, one Allgatherv of positions per step."""
+"""MPI distributed N-body: default uses one position Allgatherv per step."""
 import argparse
 import csv
 import os
@@ -30,6 +30,8 @@ def main():
     ap.add_argument("--impact", type=float, default=1.0)
     ap.add_argument("--save-every", type=int, default=0)
     ap.add_argument("--run-id", default=None)
+    ap.add_argument("--comm-mode", choices=("positions", "full-state"), default="positions",
+                    help="Experimental: full-state gathers unnecessary velocities and masses too")
     a = ap.parse_args()
 
     err = None
@@ -51,6 +53,10 @@ def main():
     rd = [3 * d for d in displs]
     my_vel = vel[s:e].copy()  # velocities never leave their owner
     pos_new = np.empty_like(pos)
+    if a.comm_mode == "full-state":
+        # Preallocate buffers; all experimental extra communication is inside the timer.
+        vel_received = np.empty_like(vel)
+        mass_received = np.empty_like(mass)
     save = bool(a.save_every) and rank == 0
     frames = [pos.copy()] if save else []
     if rank == 0:
@@ -70,6 +76,11 @@ def main():
         drift(local_new, my_vel, a.dt)
         c1 = MPI.Wtime()
         comm.Allgatherv(local_new, [pos_new.reshape(-1), rc, rd, MPI.DOUBLE])
+        if a.comm_mode == "full-state":
+            # These two global arrays are never used by the integrator.
+            # Three collectives vs one: this measures both extra bytes AND latency.
+            comm.Allgatherv(my_vel, [vel_received.reshape(-1), rc, rd, MPI.DOUBLE])
+            comm.Allgatherv(mass[s:e], [mass_received, counts, displs, MPI.DOUBLE])
         c2 = MPI.Wtime()
         pos, pos_new = pos_new, pos
         my_acc = accel(pos, mass, s, e, a.eps)
@@ -111,7 +122,9 @@ def main():
                         os.environ.get("HW_TAG", socket.gethostname())])
         print(f"N={a.n} P={P} steps={a.steps} t_total={t_total:.3f}s comp={mean_comp:.3f}s "
               f"comm={mean_comm:.3f}s imbalance={max(comps) / mean_comp:.3f} "
-              f"energy_drift={drift_rel:.2e} run_id={rid}")
+              f"energy_drift={drift_rel:.2e} comm_mode={a.comm_mode} "
+              f"logical_payload_per_step={a.n * (24 if a.comm_mode == 'positions' else 56)}B "
+              f"run_id={rid}")
 
 
 if __name__ == "__main__":
