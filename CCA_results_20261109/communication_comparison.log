@@ -1,0 +1,49 @@
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/sequential.py --n 2000 --steps 100 --run-id comm_20261109_140423_seq_0
+N=2000 steps=100 t_total=3.742s energy_drift=-5.26e-07 run_id=comm_20261109_140423_seq_0
+
+> /usr/bin/mpirun -np 4 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 2000 --steps 100 --run-id comm_20261109_140423_positions_0 --comm-mode positions
+N=2000 P=4 steps=100 t_total=1.371s comp=1.145s comm=0.222s imbalance=1.019 energy_drift=-5.26e-07 comm_mode=positions logical_payload_per_step=48000B run_id=comm_20261109_140423_positions_0
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_comm_20261109_140423_seq_0.npz results/final_comm_20261109_140423_positions_0.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /usr/bin/mpirun -np 4 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 2000 --steps 100 --run-id comm_20261109_140423_full-state_0 --comm-mode full-state
+N=2000 P=4 steps=100 t_total=1.426s comp=1.182s comm=0.240s imbalance=1.084 energy_drift=-5.26e-07 comm_mode=full-state logical_payload_per_step=112000B run_id=comm_20261109_140423_full-state_0
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_comm_20261109_140423_seq_0.npz results/final_comm_20261109_140423_full-state_0.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/sequential.py --n 2000 --steps 100 --run-id comm_20261109_140423_seq_1
+N=2000 steps=100 t_total=3.630s energy_drift=-5.26e-07 run_id=comm_20261109_140423_seq_1
+
+> /usr/bin/mpirun -np 4 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 2000 --steps 100 --run-id comm_20261109_140423_positions_1 --comm-mode positions
+N=2000 P=4 steps=100 t_total=1.408s comp=1.192s comm=0.212s imbalance=1.016 energy_drift=-5.26e-07 comm_mode=positions logical_payload_per_step=48000B run_id=comm_20261109_140423_positions_1
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_comm_20261109_140423_seq_1.npz results/final_comm_20261109_140423_positions_1.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /usr/bin/mpirun -np 4 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 2000 --steps 100 --run-id comm_20261109_140423_full-state_1 --comm-mode full-state
+N=2000 P=4 steps=100 t_total=1.541s comp=1.216s comm=0.324s imbalance=1.050 energy_drift=-5.26e-07 comm_mode=full-state logical_payload_per_step=112000B run_id=comm_20261109_140423_full-state_1
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_comm_20261109_140423_seq_1.npz results/final_comm_20261109_140423_full-state_1.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/sequential.py --n 2000 --steps 100 --run-id comm_20261109_140423_seq_2
+N=2000 steps=100 t_total=3.684s energy_drift=-5.26e-07 run_id=comm_20261109_140423_seq_2
+
+> /usr/bin/mpirun -np 4 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 2000 --steps 100 --run-id comm_20261109_140423_positions_2 --comm-mode positions
+N=2000 P=4 steps=100 t_total=1.529s comp=1.247s comm=0.280s imbalance=1.057 energy_drift=-5.26e-07 comm_mode=positions logical_payload_per_step=48000B run_id=comm_20261109_140423_positions_2
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_comm_20261109_140423_seq_2.npz results/final_comm_20261109_140423_positions_2.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /usr/bin/mpirun -np 4 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 2000 --steps 100 --run-id comm_20261109_140423_full-state_2 --comm-mode full-state
+N=2000 P=4 steps=100 t_total=1.542s comp=1.240s comm=0.298s imbalance=1.017 energy_drift=-5.26e-07 comm_mode=full-state logical_payload_per_step=112000B run_id=comm_20261109_140423_full-state_2
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_comm_20261109_140423_seq_2.npz results/final_comm_20261109_140423_full-state_2.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+positions  :     48000 logical bytes per step, median total=1.408269s median communication=0.221788s
+full-state :    112000 logical bytes per step, median total=1.540880s median communication=0.298442s
+The logical payload counts each global state once; it is not total network traffic.
+Individual measurement rows are in results/runs.csv (prefix comm_20261109_140423).

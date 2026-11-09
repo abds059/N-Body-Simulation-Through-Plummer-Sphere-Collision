@@ -1,0 +1,23 @@
+FIT (MPI P>=2; same machine; median time/step per N,P)
+cases=13 repeats/case=3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3
+k=9.485422816e-09 s/body-pair, a=0.000000000e+00 s, b=2.629035798e-07 s/byte-equivalent
+median relative fit error=108.2%
+WARNING: fit error >25%; model cannot support a credible crossover claim.
+     N    P   repeats   observed(s/step)  predicted(s/step)   error
+   500    2         3           0.001524           0.004341  184.9%
+   500    4         3           0.001139           0.003748  229.0%
+   500    8         3           0.000645           0.003451  434.8%
+  1000    2         3           0.005300           0.011052  108.5%
+  1000    4         3           0.004170           0.008681  108.2%
+  1000    8         3           0.002251           0.007495  233.0%
+  1001    4         3           0.003937           0.008692  120.8%
+  5000    2         3           0.131911           0.150116   13.8%
+  5000    4         3           0.084988           0.090832    6.9%
+  5000    8         3           0.050120           0.061190   22.1%
+ 10000    2         3           0.532500           0.537368    0.9%
+ 10000    4         3           0.319249           0.300232    6.0%
+ 10000    8         3           0.187514           0.181665    3.1%
+At N=5000, fitted minimum among P=2..8: P=8
+No predicted crossover within this range; do not extrapolate beyond observed hardware.
+Model is exploratory: 24*N is logical payload, not actual network traffic; P=1 was excluded because no inter-rank communication occurs there.
+chart: /home/areebazj/nbody-cca/results/costmodel.png

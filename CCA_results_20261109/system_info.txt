@@ -1,0 +1,13 @@
+Python: 3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]
+Operating system: Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.43
+Processor: x86_64
+CPU logical count: 12
+numpy: 2.5.4
+numba: 0.68.1
+matplotlib: 3.11.2
+mpi4py: 4.1.2
+MPI vendor: ('Open MPI', (5, 0, 10))
+streamlit: not installed
+mpirun: /usr/bin/mpirun
+mpiexec: /usr/bin/mpiexec
+NBODY_KERNEL: numba

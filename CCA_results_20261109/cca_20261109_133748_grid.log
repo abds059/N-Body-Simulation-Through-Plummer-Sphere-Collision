@@ -1,0 +1,409 @@
+Experiment tag: cca_20261109_133748; hardware tag: wsl_cca_20261109; MPI=True
+Reminder: all runs in a report must be conducted on the same hardware.
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/sequential.py --n 100 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_seq_n100_rep1
+N=100 steps=100 t_total=0.010s energy_drift=3.33e-06 run_id=cca_20261109_133748_seq_n100_rep1
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 1 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 100 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n100_p1_rep1
+N=100 P=1 steps=100 t_total=0.011s comp=0.011s comm=0.001s imbalance=1.000 energy_drift=3.33e-06 comm_mode=positions logical_payload_per_step=2400B run_id=cca_20261109_133748_mpi_n100_p1_rep1
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n100_rep1.npz results/final_cca_20261109_133748_mpi_n100_p1_rep1.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 2 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 100 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n100_p2_rep1
+N=100 P=2 steps=100 t_total=0.008s comp=0.006s comm=0.001s imbalance=1.027 energy_drift=3.33e-06 comm_mode=positions logical_payload_per_step=2400B run_id=cca_20261109_133748_mpi_n100_p2_rep1
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n100_rep1.npz results/final_cca_20261109_133748_mpi_n100_p2_rep1.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 4 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 100 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n100_p4_rep1
+N=100 P=4 steps=100 t_total=0.011s comp=0.006s comm=0.005s imbalance=1.297 energy_drift=3.33e-06 comm_mode=positions logical_payload_per_step=2400B run_id=cca_20261109_133748_mpi_n100_p4_rep1
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n100_rep1.npz results/final_cca_20261109_133748_mpi_n100_p4_rep1.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 8 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 100 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n100_p8_rep1
+N=100 P=8 steps=100 t_total=0.016s comp=0.006s comm=0.010s imbalance=1.381 energy_drift=3.33e-06 comm_mode=positions logical_payload_per_step=2400B run_id=cca_20261109_133748_mpi_n100_p8_rep1
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n100_rep1.npz results/final_cca_20261109_133748_mpi_n100_p8_rep1.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/sequential.py --n 100 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_seq_n100_rep2
+N=100 steps=100 t_total=0.010s energy_drift=3.33e-06 run_id=cca_20261109_133748_seq_n100_rep2
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 1 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 100 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n100_p1_rep2
+N=100 P=1 steps=100 t_total=0.011s comp=0.010s comm=0.001s imbalance=1.000 energy_drift=3.33e-06 comm_mode=positions logical_payload_per_step=2400B run_id=cca_20261109_133748_mpi_n100_p1_rep2
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n100_rep2.npz results/final_cca_20261109_133748_mpi_n100_p1_rep2.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 2 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 100 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n100_p2_rep2
+N=100 P=2 steps=100 t_total=0.007s comp=0.006s comm=0.001s imbalance=1.015 energy_drift=3.33e-06 comm_mode=positions logical_payload_per_step=2400B run_id=cca_20261109_133748_mpi_n100_p2_rep2
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n100_rep2.npz results/final_cca_20261109_133748_mpi_n100_p2_rep2.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 4 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 100 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n100_p4_rep2
+N=100 P=4 steps=100 t_total=0.009s comp=0.005s comm=0.004s imbalance=1.316 energy_drift=3.33e-06 comm_mode=positions logical_payload_per_step=2400B run_id=cca_20261109_133748_mpi_n100_p4_rep2
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n100_rep2.npz results/final_cca_20261109_133748_mpi_n100_p4_rep2.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 8 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 100 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n100_p8_rep2
+N=100 P=8 steps=100 t_total=0.009s comp=0.004s comm=0.005s imbalance=1.269 energy_drift=3.33e-06 comm_mode=positions logical_payload_per_step=2400B run_id=cca_20261109_133748_mpi_n100_p8_rep2
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n100_rep2.npz results/final_cca_20261109_133748_mpi_n100_p8_rep2.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/sequential.py --n 100 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_seq_n100_rep3
+N=100 steps=100 t_total=0.010s energy_drift=3.33e-06 run_id=cca_20261109_133748_seq_n100_rep3
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 1 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 100 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n100_p1_rep3
+N=100 P=1 steps=100 t_total=0.011s comp=0.011s comm=0.001s imbalance=1.000 energy_drift=3.33e-06 comm_mode=positions logical_payload_per_step=2400B run_id=cca_20261109_133748_mpi_n100_p1_rep3
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n100_rep3.npz results/final_cca_20261109_133748_mpi_n100_p1_rep3.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 2 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 100 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n100_p2_rep3
+N=100 P=2 steps=100 t_total=0.007s comp=0.006s comm=0.001s imbalance=1.041 energy_drift=3.33e-06 comm_mode=positions logical_payload_per_step=2400B run_id=cca_20261109_133748_mpi_n100_p2_rep3
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n100_rep3.npz results/final_cca_20261109_133748_mpi_n100_p2_rep3.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 4 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 100 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n100_p4_rep3
+N=100 P=4 steps=100 t_total=0.007s comp=0.004s comm=0.003s imbalance=1.099 energy_drift=3.33e-06 comm_mode=positions logical_payload_per_step=2400B run_id=cca_20261109_133748_mpi_n100_p4_rep3
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n100_rep3.npz results/final_cca_20261109_133748_mpi_n100_p4_rep3.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 8 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 100 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n100_p8_rep3
+N=100 P=8 steps=100 t_total=0.013s comp=0.005s comm=0.008s imbalance=1.226 energy_drift=3.33e-06 comm_mode=positions logical_payload_per_step=2400B run_id=cca_20261109_133748_mpi_n100_p8_rep3
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n100_rep3.npz results/final_cca_20261109_133748_mpi_n100_p8_rep3.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/sequential.py --n 500 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_seq_n500_rep1
+N=500 steps=100 t_total=0.235s energy_drift=-1.17e-06 run_id=cca_20261109_133748_seq_n500_rep1
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 1 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 500 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n500_p1_rep1
+N=500 P=1 steps=100 t_total=0.229s comp=0.227s comm=0.002s imbalance=1.000 energy_drift=-1.17e-06 comm_mode=positions logical_payload_per_step=12000B run_id=cca_20261109_133748_mpi_n500_p1_rep1
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n500_rep1.npz results/final_cca_20261109_133748_mpi_n500_p1_rep1.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 2 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 500 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n500_p2_rep1
+N=500 P=2 steps=100 t_total=0.140s comp=0.131s comm=0.009s imbalance=1.000 energy_drift=-1.17e-06 comm_mode=positions logical_payload_per_step=12000B run_id=cca_20261109_133748_mpi_n500_p2_rep1
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n500_rep1.npz results/final_cca_20261109_133748_mpi_n500_p2_rep1.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 4 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 500 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n500_p4_rep1
+N=500 P=4 steps=100 t_total=0.115s comp=0.087s comm=0.027s imbalance=1.135 energy_drift=-1.17e-06 comm_mode=positions logical_payload_per_step=12000B run_id=cca_20261109_133748_mpi_n500_p4_rep1
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n500_rep1.npz results/final_cca_20261109_133748_mpi_n500_p4_rep1.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 8 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 500 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n500_p8_rep1
+N=500 P=8 steps=100 t_total=0.065s comp=0.049s comm=0.016s imbalance=1.119 energy_drift=-1.17e-06 comm_mode=positions logical_payload_per_step=12000B run_id=cca_20261109_133748_mpi_n500_p8_rep1
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n500_rep1.npz results/final_cca_20261109_133748_mpi_n500_p8_rep1.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/sequential.py --n 500 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_seq_n500_rep2
+N=500 steps=100 t_total=0.231s energy_drift=-1.17e-06 run_id=cca_20261109_133748_seq_n500_rep2
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 1 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 500 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n500_p1_rep2
+N=500 P=1 steps=100 t_total=0.226s comp=0.224s comm=0.002s imbalance=1.000 energy_drift=-1.17e-06 comm_mode=positions logical_payload_per_step=12000B run_id=cca_20261109_133748_mpi_n500_p1_rep2
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n500_rep2.npz results/final_cca_20261109_133748_mpi_n500_p1_rep2.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 2 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 500 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n500_p2_rep2
+N=500 P=2 steps=100 t_total=0.156s comp=0.150s comm=0.006s imbalance=1.001 energy_drift=-1.17e-06 comm_mode=positions logical_payload_per_step=12000B run_id=cca_20261109_133748_mpi_n500_p2_rep2
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n500_rep2.npz results/final_cca_20261109_133748_mpi_n500_p2_rep2.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 4 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 500 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n500_p4_rep2
+N=500 P=4 steps=100 t_total=0.079s comp=0.063s comm=0.015s imbalance=1.117 energy_drift=-1.17e-06 comm_mode=positions logical_payload_per_step=12000B run_id=cca_20261109_133748_mpi_n500_p4_rep2
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n500_rep2.npz results/final_cca_20261109_133748_mpi_n500_p4_rep2.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 8 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 500 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n500_p8_rep2
+N=500 P=8 steps=100 t_total=0.064s comp=0.048s comm=0.016s imbalance=1.144 energy_drift=-1.17e-06 comm_mode=positions logical_payload_per_step=12000B run_id=cca_20261109_133748_mpi_n500_p8_rep2
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n500_rep2.npz results/final_cca_20261109_133748_mpi_n500_p8_rep2.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/sequential.py --n 500 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_seq_n500_rep3
+N=500 steps=100 t_total=0.262s energy_drift=-1.17e-06 run_id=cca_20261109_133748_seq_n500_rep3
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 1 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 500 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n500_p1_rep3
+N=500 P=1 steps=100 t_total=0.223s comp=0.222s comm=0.001s imbalance=1.000 energy_drift=-1.17e-06 comm_mode=positions logical_payload_per_step=12000B run_id=cca_20261109_133748_mpi_n500_p1_rep3
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n500_rep3.npz results/final_cca_20261109_133748_mpi_n500_p1_rep3.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 2 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 500 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n500_p2_rep3
+N=500 P=2 steps=100 t_total=0.152s comp=0.136s comm=0.016s imbalance=1.069 energy_drift=-1.17e-06 comm_mode=positions logical_payload_per_step=12000B run_id=cca_20261109_133748_mpi_n500_p2_rep3
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n500_rep3.npz results/final_cca_20261109_133748_mpi_n500_p2_rep3.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 4 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 500 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n500_p4_rep3
+N=500 P=4 steps=100 t_total=0.114s comp=0.094s comm=0.020s imbalance=1.038 energy_drift=-1.17e-06 comm_mode=positions logical_payload_per_step=12000B run_id=cca_20261109_133748_mpi_n500_p4_rep3
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n500_rep3.npz results/final_cca_20261109_133748_mpi_n500_p4_rep3.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 8 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 500 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n500_p8_rep3
+N=500 P=8 steps=100 t_total=0.079s comp=0.053s comm=0.025s imbalance=1.089 energy_drift=-1.17e-06 comm_mode=positions logical_payload_per_step=12000B run_id=cca_20261109_133748_mpi_n500_p8_rep3
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n500_rep3.npz results/final_cca_20261109_133748_mpi_n500_p8_rep3.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/sequential.py --n 1000 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_seq_n1000_rep1
+N=1000 steps=100 t_total=0.869s energy_drift=-1.73e-06 run_id=cca_20261109_133748_seq_n1000_rep1
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 1 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 1000 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n1000_p1_rep1
+N=1000 P=1 steps=100 t_total=0.880s comp=0.878s comm=0.002s imbalance=1.000 energy_drift=-1.73e-06 comm_mode=positions logical_payload_per_step=24000B run_id=cca_20261109_133748_mpi_n1000_p1_rep1
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n1000_rep1.npz results/final_cca_20261109_133748_mpi_n1000_p1_rep1.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 2 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 1000 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n1000_p2_rep1
+N=1000 P=2 steps=100 t_total=0.508s comp=0.498s comm=0.010s imbalance=1.003 energy_drift=-1.73e-06 comm_mode=positions logical_payload_per_step=24000B run_id=cca_20261109_133748_mpi_n1000_p2_rep1
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n1000_rep1.npz results/final_cca_20261109_133748_mpi_n1000_p2_rep1.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 4 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 1000 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n1000_p4_rep1
+N=1000 P=4 steps=100 t_total=0.386s comp=0.309s comm=0.077s imbalance=1.041 energy_drift=-1.73e-06 comm_mode=positions logical_payload_per_step=24000B run_id=cca_20261109_133748_mpi_n1000_p4_rep1
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n1000_rep1.npz results/final_cca_20261109_133748_mpi_n1000_p4_rep1.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 8 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 1000 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n1000_p8_rep1
+N=1000 P=8 steps=100 t_total=0.225s comp=0.189s comm=0.035s imbalance=1.079 energy_drift=-1.73e-06 comm_mode=positions logical_payload_per_step=24000B run_id=cca_20261109_133748_mpi_n1000_p8_rep1
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n1000_rep1.npz results/final_cca_20261109_133748_mpi_n1000_p8_rep1.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/sequential.py --n 1000 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_seq_n1000_rep2
+N=1000 steps=100 t_total=0.864s energy_drift=-1.73e-06 run_id=cca_20261109_133748_seq_n1000_rep2
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 1 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 1000 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n1000_p1_rep2
+N=1000 P=1 steps=100 t_total=0.873s comp=0.871s comm=0.002s imbalance=1.000 energy_drift=-1.73e-06 comm_mode=positions logical_payload_per_step=24000B run_id=cca_20261109_133748_mpi_n1000_p1_rep2
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n1000_rep2.npz results/final_cca_20261109_133748_mpi_n1000_p1_rep2.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 2 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 1000 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n1000_p2_rep2
+N=1000 P=2 steps=100 t_total=0.530s comp=0.517s comm=0.013s imbalance=1.004 energy_drift=-1.73e-06 comm_mode=positions logical_payload_per_step=24000B run_id=cca_20261109_133748_mpi_n1000_p2_rep2
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n1000_rep2.npz results/final_cca_20261109_133748_mpi_n1000_p2_rep2.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 4 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 1000 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n1000_p4_rep2
+N=1000 P=4 steps=100 t_total=0.417s comp=0.321s comm=0.095s imbalance=1.082 energy_drift=-1.73e-06 comm_mode=positions logical_payload_per_step=24000B run_id=cca_20261109_133748_mpi_n1000_p4_rep2
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n1000_rep2.npz results/final_cca_20261109_133748_mpi_n1000_p4_rep2.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 8 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 1000 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n1000_p8_rep2
+N=1000 P=8 steps=100 t_total=0.222s comp=0.180s comm=0.041s imbalance=1.057 energy_drift=-1.73e-06 comm_mode=positions logical_payload_per_step=24000B run_id=cca_20261109_133748_mpi_n1000_p8_rep2
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n1000_rep2.npz results/final_cca_20261109_133748_mpi_n1000_p8_rep2.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/sequential.py --n 1000 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_seq_n1000_rep3
+N=1000 steps=100 t_total=0.917s energy_drift=-1.73e-06 run_id=cca_20261109_133748_seq_n1000_rep3
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 1 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 1000 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n1000_p1_rep3
+N=1000 P=1 steps=100 t_total=0.866s comp=0.864s comm=0.002s imbalance=1.000 energy_drift=-1.73e-06 comm_mode=positions logical_payload_per_step=24000B run_id=cca_20261109_133748_mpi_n1000_p1_rep3
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n1000_rep3.npz results/final_cca_20261109_133748_mpi_n1000_p1_rep3.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 2 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 1000 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n1000_p2_rep3
+N=1000 P=2 steps=100 t_total=0.653s comp=0.641s comm=0.011s imbalance=1.001 energy_drift=-1.73e-06 comm_mode=positions logical_payload_per_step=24000B run_id=cca_20261109_133748_mpi_n1000_p2_rep3
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n1000_rep3.npz results/final_cca_20261109_133748_mpi_n1000_p2_rep3.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 4 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 1000 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n1000_p4_rep3
+N=1000 P=4 steps=100 t_total=0.423s comp=0.339s comm=0.083s imbalance=1.039 energy_drift=-1.73e-06 comm_mode=positions logical_payload_per_step=24000B run_id=cca_20261109_133748_mpi_n1000_p4_rep3
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n1000_rep3.npz results/final_cca_20261109_133748_mpi_n1000_p4_rep3.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 8 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 1000 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n1000_p8_rep3
+N=1000 P=8 steps=100 t_total=0.225s comp=0.172s comm=0.053s imbalance=1.106 energy_drift=-1.73e-06 comm_mode=positions logical_payload_per_step=24000B run_id=cca_20261109_133748_mpi_n1000_p8_rep3
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n1000_rep3.npz results/final_cca_20261109_133748_mpi_n1000_p8_rep3.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/sequential.py --n 5000 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_seq_n5000_rep1
+N=5000 steps=100 t_total=21.683s energy_drift=6.85e-08 run_id=cca_20261109_133748_seq_n5000_rep1
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 1 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 5000 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n5000_p1_rep1
+N=5000 P=1 steps=100 t_total=21.778s comp=21.771s comm=0.007s imbalance=1.000 energy_drift=6.85e-08 comm_mode=positions logical_payload_per_step=120000B run_id=cca_20261109_133748_mpi_n5000_p1_rep1
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n5000_rep1.npz results/final_cca_20261109_133748_mpi_n5000_p1_rep1.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 2 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 5000 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n5000_p2_rep1
+N=5000 P=2 steps=100 t_total=13.139s comp=13.080s comm=0.058s imbalance=1.000 energy_drift=6.85e-08 comm_mode=positions logical_payload_per_step=120000B run_id=cca_20261109_133748_mpi_n5000_p2_rep1
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n5000_rep1.npz results/final_cca_20261109_133748_mpi_n5000_p2_rep1.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 4 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 5000 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n5000_p4_rep1
+N=5000 P=4 steps=100 t_total=8.659s comp=7.490s comm=1.151s imbalance=1.023 energy_drift=6.85e-08 comm_mode=positions logical_payload_per_step=120000B run_id=cca_20261109_133748_mpi_n5000_p4_rep1
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n5000_rep1.npz results/final_cca_20261109_133748_mpi_n5000_p4_rep1.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 8 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 5000 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n5000_p8_rep1
+N=5000 P=8 steps=100 t_total=4.859s comp=4.128s comm=0.727s imbalance=1.010 energy_drift=6.85e-08 comm_mode=positions logical_payload_per_step=120000B run_id=cca_20261109_133748_mpi_n5000_p8_rep1
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n5000_rep1.npz results/final_cca_20261109_133748_mpi_n5000_p8_rep1.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/sequential.py --n 5000 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_seq_n5000_rep2
+N=5000 steps=100 t_total=21.751s energy_drift=6.85e-08 run_id=cca_20261109_133748_seq_n5000_rep2
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 1 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 5000 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n5000_p1_rep2
+N=5000 P=1 steps=100 t_total=21.812s comp=21.805s comm=0.007s imbalance=1.000 energy_drift=6.85e-08 comm_mode=positions logical_payload_per_step=120000B run_id=cca_20261109_133748_mpi_n5000_p1_rep2
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n5000_rep2.npz results/final_cca_20261109_133748_mpi_n5000_p1_rep2.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 2 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 5000 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n5000_p2_rep2
+N=5000 P=2 steps=100 t_total=13.366s comp=13.291s comm=0.074s imbalance=1.001 energy_drift=6.85e-08 comm_mode=positions logical_payload_per_step=120000B run_id=cca_20261109_133748_mpi_n5000_p2_rep2
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n5000_rep2.npz results/final_cca_20261109_133748_mpi_n5000_p2_rep2.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 4 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 5000 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n5000_p4_rep2
+N=5000 P=4 steps=100 t_total=8.499s comp=7.343s comm=1.148s imbalance=1.021 energy_drift=6.85e-08 comm_mode=positions logical_payload_per_step=120000B run_id=cca_20261109_133748_mpi_n5000_p4_rep2
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n5000_rep2.npz results/final_cca_20261109_133748_mpi_n5000_p4_rep2.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 8 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 5000 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n5000_p8_rep2
+N=5000 P=8 steps=100 t_total=5.012s comp=4.160s comm=0.845s imbalance=1.031 energy_drift=6.85e-08 comm_mode=positions logical_payload_per_step=120000B run_id=cca_20261109_133748_mpi_n5000_p8_rep2
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n5000_rep2.npz results/final_cca_20261109_133748_mpi_n5000_p8_rep2.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/sequential.py --n 5000 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_seq_n5000_rep3
+N=5000 steps=100 t_total=21.927s energy_drift=6.85e-08 run_id=cca_20261109_133748_seq_n5000_rep3
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 1 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 5000 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n5000_p1_rep3
+N=5000 P=1 steps=100 t_total=21.642s comp=21.635s comm=0.006s imbalance=1.000 energy_drift=6.85e-08 comm_mode=positions logical_payload_per_step=120000B run_id=cca_20261109_133748_mpi_n5000_p1_rep3
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n5000_rep3.npz results/final_cca_20261109_133748_mpi_n5000_p1_rep3.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 2 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 5000 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n5000_p2_rep3
+N=5000 P=2 steps=100 t_total=13.191s comp=13.129s comm=0.062s imbalance=1.001 energy_drift=6.85e-08 comm_mode=positions logical_payload_per_step=120000B run_id=cca_20261109_133748_mpi_n5000_p2_rep3
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n5000_rep3.npz results/final_cca_20261109_133748_mpi_n5000_p2_rep3.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 4 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 5000 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n5000_p4_rep3
+N=5000 P=4 steps=100 t_total=8.111s comp=7.078s comm=1.025s imbalance=1.030 energy_drift=6.85e-08 comm_mode=positions logical_payload_per_step=120000B run_id=cca_20261109_133748_mpi_n5000_p4_rep3
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n5000_rep3.npz results/final_cca_20261109_133748_mpi_n5000_p4_rep3.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 8 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 5000 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n5000_p8_rep3
+N=5000 P=8 steps=100 t_total=5.070s comp=4.227s comm=0.837s imbalance=1.038 energy_drift=6.85e-08 comm_mode=positions logical_payload_per_step=120000B run_id=cca_20261109_133748_mpi_n5000_p8_rep3
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n5000_rep3.npz results/final_cca_20261109_133748_mpi_n5000_p8_rep3.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/sequential.py --n 10000 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_seq_n10000_rep1
+N=10000 steps=100 t_total=87.373s energy_drift=-2.24e-08 run_id=cca_20261109_133748_seq_n10000_rep1
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 1 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 10000 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n10000_p1_rep1
+N=10000 P=1 steps=100 t_total=86.982s comp=86.971s comm=0.010s imbalance=1.000 energy_drift=-2.24e-08 comm_mode=positions logical_payload_per_step=240000B run_id=cca_20261109_133748_mpi_n10000_p1_rep1
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n10000_rep1.npz results/final_cca_20261109_133748_mpi_n10000_p1_rep1.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 2 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 10000 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n10000_p2_rep1
+N=10000 P=2 steps=100 t_total=52.947s comp=52.769s comm=0.177s imbalance=1.000 energy_drift=-2.24e-08 comm_mode=positions logical_payload_per_step=240000B run_id=cca_20261109_133748_mpi_n10000_p2_rep1
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n10000_rep1.npz results/final_cca_20261109_133748_mpi_n10000_p2_rep1.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 4 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 10000 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n10000_p4_rep1
+N=10000 P=4 steps=100 t_total=32.142s comp=29.505s comm=2.611s imbalance=1.017 energy_drift=-2.24e-08 comm_mode=positions logical_payload_per_step=240000B run_id=cca_20261109_133748_mpi_n10000_p4_rep1
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n10000_rep1.npz results/final_cca_20261109_133748_mpi_n10000_p4_rep1.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 8 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 10000 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n10000_p8_rep1
+N=10000 P=8 steps=100 t_total=18.765s comp=16.489s comm=2.241s imbalance=1.032 energy_drift=-2.24e-08 comm_mode=positions logical_payload_per_step=240000B run_id=cca_20261109_133748_mpi_n10000_p8_rep1
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n10000_rep1.npz results/final_cca_20261109_133748_mpi_n10000_p8_rep1.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/sequential.py --n 10000 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_seq_n10000_rep2
+N=10000 steps=100 t_total=87.319s energy_drift=-2.24e-08 run_id=cca_20261109_133748_seq_n10000_rep2
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 1 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 10000 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n10000_p1_rep2
+N=10000 P=1 steps=100 t_total=87.309s comp=87.298s comm=0.011s imbalance=1.000 energy_drift=-2.24e-08 comm_mode=positions logical_payload_per_step=240000B run_id=cca_20261109_133748_mpi_n10000_p1_rep2
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n10000_rep2.npz results/final_cca_20261109_133748_mpi_n10000_p1_rep2.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 2 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 10000 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n10000_p2_rep2
+N=10000 P=2 steps=100 t_total=53.250s comp=53.117s comm=0.131s imbalance=1.000 energy_drift=-2.24e-08 comm_mode=positions logical_payload_per_step=240000B run_id=cca_20261109_133748_mpi_n10000_p2_rep2
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n10000_rep2.npz results/final_cca_20261109_133748_mpi_n10000_p2_rep2.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 4 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 10000 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n10000_p4_rep2
+N=10000 P=4 steps=100 t_total=31.540s comp=29.094s comm=2.415s imbalance=1.005 energy_drift=-2.24e-08 comm_mode=positions logical_payload_per_step=240000B run_id=cca_20261109_133748_mpi_n10000_p4_rep2
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n10000_rep2.npz results/final_cca_20261109_133748_mpi_n10000_p4_rep2.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 8 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 10000 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n10000_p8_rep2
+N=10000 P=8 steps=100 t_total=18.751s comp=16.593s comm=2.140s imbalance=1.025 energy_drift=-2.24e-08 comm_mode=positions logical_payload_per_step=240000B run_id=cca_20261109_133748_mpi_n10000_p8_rep2
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n10000_rep2.npz results/final_cca_20261109_133748_mpi_n10000_p8_rep2.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/sequential.py --n 10000 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_seq_n10000_rep3
+N=10000 steps=100 t_total=87.560s energy_drift=-2.24e-08 run_id=cca_20261109_133748_seq_n10000_rep3
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 1 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 10000 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n10000_p1_rep3
+N=10000 P=1 steps=100 t_total=87.398s comp=87.386s comm=0.011s imbalance=1.000 energy_drift=-2.24e-08 comm_mode=positions logical_payload_per_step=240000B run_id=cca_20261109_133748_mpi_n10000_p1_rep3
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n10000_rep3.npz results/final_cca_20261109_133748_mpi_n10000_p1_rep3.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 2 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 10000 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n10000_p2_rep3
+N=10000 P=2 steps=100 t_total=54.691s comp=54.543s comm=0.146s imbalance=1.000 energy_drift=-2.24e-08 comm_mode=positions logical_payload_per_step=240000B run_id=cca_20261109_133748_mpi_n10000_p2_rep3
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n10000_rep3.npz results/final_cca_20261109_133748_mpi_n10000_p2_rep3.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 4 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 10000 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n10000_p4_rep3
+N=10000 P=4 steps=100 t_total=31.925s comp=29.190s comm=2.689s imbalance=1.017 energy_drift=-2.24e-08 comm_mode=positions logical_payload_per_step=240000B run_id=cca_20261109_133748_mpi_n10000_p4_rep3
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n10000_rep3.npz results/final_cca_20261109_133748_mpi_n10000_p4_rep3.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+> /usr/bin/mpirun --use-hwthread-cpus -np 8 /home/areebazj/nbody-cca/.venv/bin/python src/mpi_nbody.py --n 10000 --steps 100 --seed 42 --dt 0.01 --eps 0.05 --save-every 0 --run-id cca_20261109_133748_mpi_n10000_p8_rep3
+N=10000 P=8 steps=100 t_total=18.588s comp=16.466s comm=2.101s imbalance=1.018 energy_drift=-2.24e-08 comm_mode=positions logical_payload_per_step=240000B run_id=cca_20261109_133748_mpi_n10000_p8_rep3
+
+> /home/areebazj/nbody-cca/.venv/bin/python src/compare.py results/final_cca_20261109_133748_seq_n10000_rep3.npz results/final_cca_20261109_133748_mpi_n10000_p8_rep3.npz --tol 1e-9
+max|dpos|=0.000e+00 max|dvel|=0.000e+00 tol=1.0e-09 PASS
+
+Completed. Run: python scripts/make_plots.py --prefix cca_20261109_133748
